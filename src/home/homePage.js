@@ -1,43 +1,48 @@
-var pricipalObj2;
-    var loantenureObj;
-    var interestrateObj1;
-    var principal;
-    var interest;
-    var tenure;
-    var pie;
-    var yearValue;
-    var monthValue;
-    var yearTenure = true;
-    var chart;
-    var grid;
-    var emi;
-    var princ;
-    var totalPrincipalYear = 0;
-    var totalInterestYear = 0;
-    var tent;
-    var inter;
-    var dataUnits = [];
-    var yearWiseData = [];
-    var dateObj = new Date();
-    var totalInterest = 0;
-    var totalAmount = 0;
-    var totalPrincipal = 0;
-    var endBalance;
-    var beginBalance;
-    var yearTotal = 0;
-    var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    var datepickerObj;
-    var intl = new ej.base.Internationalization();
-    var legendSettings = {
-        textStyle: {
-            color: '#FFFFFF',
-            fontFamily: 'Raleway, sans-serif',
-            fontWeight: '600',
-            opacity: 0.62,
-            size: '16px',
-        }
-    };
- window.default = function () {
+/**
+ *  Home page handler
+ */ var pricipalObj2;
+ var loantenureObj;
+ var interestrateObj1;
+ var principal;
+ var interest;
+ var tenure;
+ var pie;
+ var yearValue;
+ var monthValue;
+ var yearTenure = true;
+ var chart;
+ var grid;
+ var emi;
+ var princ;
+ var totalPrincipalYear = 0;
+ var totalInterestYear = 0;
+ var tent;
+ var inter;
+ var dataUnits = [];
+ var yearWiseData = [];
+ var dateObj = new Date();
+ var totalInterest = 0;
+ var totalAmount = 0;
+ var totalPrincipal = 0;
+ var endBalance;
+ var beginBalance;
+ var yearTotal = 0;
+ var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+ var datepickerObj;
+ var intl = new ej.base.Internationalization();
+ var legendSettings = {
+     textStyle: {
+         color: '#FFFFFF',
+         fontFamily: 'Raleway, sans-serif',
+         fontWeight: '600',
+         opacity: 0.62,
+         size: '16px',
+     }
+ };
+
+   
+   
+ window.home = function () {
     renderInputControls();
     datepickerObj = new ej.calendars.DatePicker({
         start: 'Year',
@@ -327,12 +332,12 @@ function renderVisalComponents() {
             if (target.classList.contains('e-icon-gdownarrow')) {
                 target.classList.remove('e-icon-gdownarrow');
                 target.classList.add('e-icon-grightarrow');
-                grid.detailRowModule.collapse(parseInt(ej.base.closest(target, 'tr').getAttribute('aria-rowindex'), 10));
+                grid.detailRowModule.collapse(parseInt(ej.base.closest(target, 'tr').getAttribute('aria-rowindex'), 10)-1);
             }
             else {
                 target.classList.remove('e-icon-grightarrow');
                 target.classList.add('e-icon-gdownarrow');
-                grid.detailRowModule.expand(parseInt(ej.base.closest(target, 'tr').getAttribute('aria-rowindex'), 10));
+                grid.detailRowModule.expand(parseInt(ej.base.closest(target, 'tr').getAttribute('aria-rowindex'), 10)-1);
             }
         }
     });
@@ -535,7 +540,7 @@ function calRangeValues() {
 
 function renderControls() {
     grid.setProperties({
-        dataSource: yearWiseData, childGrid: {
+        dataSource: yearWiseData, childGrid: {      
             created: childCreated,
             dataBound: childDataBound,
             queryString: 'year',
@@ -593,12 +598,12 @@ function renderControls() {
 }
 
 function childCreated(args) {
-    this.getHeaderContent().style.display = 'none';
-    this.element.style.display = 'none';
+    grid.getHeaderContent().style.display = 'none';
+    grid.element.style.display = 'none';
 }
 
 function childDataBound(args) {
-    this.element.style.display = '';
+    grid.element.style.display = '';
 }
 
 function onChartMouseUp(args) {
@@ -646,3 +651,4 @@ window.getDataState = function () {
     data.yearWiseData = yearWiseData;
     return data;
 };
+
