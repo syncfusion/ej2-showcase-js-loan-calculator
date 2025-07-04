@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open"
+    "start": "webpack serve --mode development --open",
+    "ci-publish": "gulp publish-sample"
   },
   "author": "Syncfusion Inc.",
   "license": "SEE LICENSE IN license",
   "devDependencies": {
+    "@syncfusion/ej2-showcase-helper": "*",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
