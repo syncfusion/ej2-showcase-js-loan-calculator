@@ -11,16 +11,16 @@
   "author": "Syncfusion Inc.",
   "license": "SEE LICENSE IN license",
   "devDependencies": {
-    "@syncfusion/ej2-showcase-helper": "*",
     "css-loader": "^6.8.1",
+    "glob": "^10.3.3",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
-    "sass": "^1.63.6",
-    "sass-loader": "^13.3.2",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
     "terser-webpack-plugin": "^5.3.9",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
     "@syncfusion/ej2": "*"

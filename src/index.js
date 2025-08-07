@@ -3,6 +3,8 @@
  */
 import '../styles/styles.scss';
 import '../styles/index.scss';
+import './home/homePage.js';
+import './about/aboutPage.js';
 
 
 let pages = [
