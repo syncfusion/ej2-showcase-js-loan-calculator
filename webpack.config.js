@@ -5,10 +5,18 @@ const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: {
-    index: glob.sync("./src/**/*.js")
-  },
+  entry: "./src/index.js",
   target: "web",
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
+    open: true,
+    hot: true,
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {
@@ -51,7 +59,11 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".js"],
+    extensions: [".js", ".json"],
+    modules: [
+      path.resolve(__dirname, "src"),
+      "node_modules"
+    ],
   },
   output: {
     filename: "[name].js",
